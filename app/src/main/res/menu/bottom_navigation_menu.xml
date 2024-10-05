@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/navigation_settlements"
+        android:icon="@drawable/settlement"
+        android:title="Settlements" />
+
+    <item
+        android:id="@+id/navigation_reports"
+        android:icon="@drawable/ic_report"
+        android:title="Reports" />
+
+    <item
+        android:id="@+id/navigation_menu"
+        android:icon="@drawable/ic_menu"
+        android:title="Menu" />
+</menu>

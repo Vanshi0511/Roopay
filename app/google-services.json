@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "404388160119",
+    "project_id": "roopay-75d59",
+    "storage_bucket": "roopay-75d59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:404388160119:android:d0b6e7e20ab3fc70871c72",
+        "android_client_info": {
+          "package_name": "com.vanshika.roopay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBakNsiYmG3l_QURMW-WtMnFb02d7xx1CQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

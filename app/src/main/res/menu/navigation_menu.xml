@@ -1,0 +1,54 @@
+<!-- res/menu/navigation_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile" />
+
+    <item
+        android:id="@+id/nav_kyc"
+        android:title="KYC"
+        android:icon="@drawable/ic_kyc" />
+
+    <item
+        android:id="@+id/nav_support"
+        android:title="Support"
+        android:icon="@drawable/ic_support" />
+
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_settings" />
+
+    <item
+        android:id="@+id/nav_my_language"
+        android:title="My Language"
+        android:icon="@drawable/ic_language" />
+
+    <item
+        android:id="@+id/nav_terms"
+        android:title="Terms &amp; Condition"
+        android:icon="@drawable/ic_terms" />
+
+    <item
+        android:id="@+id/nav_privacy"
+        android:title="Privacy Policies"
+        android:icon="@drawable/ic_terms" />
+
+    <item
+        android:id="@+id/nav_faq"
+        android:title="FAQ"
+        android:icon="@drawable/ic_faq" />
+
+    <item
+        android:id="@+id/nav_share"
+        android:title="Share / Refer with Friend"
+        android:icon="@drawable/ic_share" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout"
+        android:icon="@drawable/ic_logout" />
+
+</menu>
