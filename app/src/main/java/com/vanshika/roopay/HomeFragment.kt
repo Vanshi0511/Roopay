@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.vanshika.roopay.databinding.FragmentHomeBinding // Import the binding class
+import com.vanshika.roopay.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!! // Create a non-nullable property
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,34 +21,31 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false) // Inflate the binding
-        return binding.root // Return the root view of the binding
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setSliderAdapter() // Call to set the slider adapter after view is created
+        setSliderAdapter()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null // Clear the binding reference when the view is destroyed
+        _binding = null
     }
 
     private fun setSliderAdapter() {
         val imageList: MutableList<Any> = ArrayList()
 
-        // Add images to the list
-        imageList.add(R.drawable.img) // Drawable resource
+        imageList.add(R.drawable.img)
         imageList.add(R.drawable.image_2)
 
-        // Create the adapter using the activity context
         val adapter = context?.let { ImageSliderAdapter(it, imageList) }
 
-        // Set the adapter to the slider
         if (adapter != null) {
             binding.imageSlider.setSliderAdapter(adapter)
-        } // Use binding to access imageSlider
+        }
     }
 
     companion object {

@@ -7,10 +7,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.vanshika.roopay.MainActivity
-import com.vanshika.roopay.R
-import com.vanshika.roopay.databinding.ActivityLoginBinding
 import com.vanshika.roopay.SignUpActivity
+import com.vanshika.roopay.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,14 +20,13 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Initialize View Binding
+        //  View Binding
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         FirebaseApp.initializeApp(this)
-        // Initialize Firebase Auth
+        //  Firebase Auth
         auth = FirebaseAuth.getInstance()
 
-        // Handle Sign-in Button Click
         binding.btnSignin.setOnClickListener {
             val email = binding.loginEmailID.text.toString().trim()
             val password = binding.loginPassID.text.toString().trim()
@@ -41,15 +38,11 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        // Navigate to SignUpActivity when "Sign-Up" is clicked
+        // Navigate to SignUpActivity
         binding.signUpID.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
 
-        // Handle Reset Password click
-        binding.resetPassID.setOnClickListener {
-            // Implement Password Reset functionality here
-        }
     }
 
     // Method to sign in the user using Firebase Authentication
@@ -59,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
-                // Hide Progress Bar
+
                 binding.progressBar.visibility = View.GONE
 
                 if (task.isSuccessful) {
@@ -68,13 +61,18 @@ class LoginActivity : AppCompatActivity() {
 
                     // Navigate to MainActivity after successful login
                     val intent = Intent(this, MainActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Clear back stack
+                    intent.flags =
+                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Clear back stack
                     startActivity(intent)
-                    finish() // Close the LoginActivity
+                    finish()
                 } else {
                     // Sign in failed
                     binding.linearID.visibility = View.VISIBLE
-                    Toast.makeText(this, "Authentication Failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        this,
+                        "Authentication Failed: ${task.exception?.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
     }

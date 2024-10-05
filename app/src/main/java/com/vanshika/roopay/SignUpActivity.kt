@@ -51,7 +51,6 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
 
-        // Handle Sign Up Button click
         binding.btnsignUp.setOnClickListener {
             val email = binding.emailID.text.toString()
             val password = binding.passID.text.toString()
@@ -100,10 +99,10 @@ class SignUpActivity : AppCompatActivity() {
 
         fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
             if (location != null) {
-                // If last location is available, use it
+                // If last location is available
                 binding.addressID.setText("Lat: ${location.latitude}, Lon: ${location.longitude}")
             } else {
-                // Request new location data if no cached location is available
+                // Request new location data if no  location is available
                 requestNewLocationData()
             }
         }
@@ -150,9 +149,9 @@ class SignUpActivity : AppCompatActivity() {
                     // Navigate to LoginActivity
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
-                    finish() // Finish this activity
+                    finish()
                 } else {
-                    // If sign in fails, display a message to the user.
+                    // If sign in fails
                     Toast.makeText(this, "Registration failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }

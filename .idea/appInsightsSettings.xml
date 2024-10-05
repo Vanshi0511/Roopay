@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.vanshika.roopay" />
+                  <option name="mobileSdkAppId" value="1:404388160119:android:d0b6e7e20ab3fc70871c72" />
+                  <option name="projectId" value="roopay-75d59" />
+                  <option name="projectNumber" value="404388160119" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

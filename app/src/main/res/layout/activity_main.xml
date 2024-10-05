@@ -39,8 +39,8 @@
 
             <ImageView
                 android:id="@+id/ic_notification"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="15dp"
@@ -48,8 +48,8 @@
 
             <ImageView
                 android:id="@+id/iv_volume"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="15dp"
                 android:layout_toStartOf="@id/ic_notification"
@@ -57,8 +57,8 @@
 
             <ImageView
                 android:id="@+id/iv_refresh"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="15dp"
                 android:layout_toStartOf="@id/iv_volume"

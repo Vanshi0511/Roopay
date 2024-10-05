@@ -90,6 +90,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mobile"
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawablePadding="12dp"
             android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,7 +109,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernameID"
             android:layout_width="match_parent"
+            android:drawableLeft="@drawable/ic_profile_primary"
             android:layout_height="wrap_content"
+            android:drawablePadding="12dp"
             android:hint="Username" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,6 +131,7 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_password"
             android:drawablePadding="12dp"
+
             android:hint="Password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -144,6 +149,8 @@
             android:id="@+id/addressID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawablePadding="12dp"
             android:hint="Address" />
     </com.google.android.material.textfield.TextInputLayout>
 

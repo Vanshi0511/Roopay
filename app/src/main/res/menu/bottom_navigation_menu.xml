@@ -6,7 +6,7 @@
 
     <item
         android:id="@+id/navigation_settlements"
-        android:icon="@drawable/settlement"
+        android:icon="@drawable/ic_settlement"
         android:title="Settlements" />
 
     <item

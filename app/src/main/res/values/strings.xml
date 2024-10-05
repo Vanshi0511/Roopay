@@ -2,4 +2,22 @@
     <string name="app_name">Roopay</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mini_n_statement">Mini \n Statement</string>
+    <string name="cash_n_withdrawal">Cash \n Withdrawal</string>
+    <string name="balance_n_check">Balance \n Check</string>
+    <string name="aadhar_n_pay">Aadhar \n Pay</string>
+    <string name="dmt_n_payment">DMT \n Payment</string>
+    <string name="dth_n_recharge">DTH \n Recharge</string>
+    <string name="lic_n_payment">LIC \n Payment</string>
+    <string name="mobile_recharge">Mobile Recharge</string>
+    <string name="electricity">Electricity</string>
+    <string name="credit_card_payment">Credit Card Payment</string>
+    <string name="cc_to_cc_payment">CC to CC Payment</string>
+    <string name="manage_cash">Manage Cash</string>
+    <string name="pan_card_service">PAN Card Service</string>
+    <string name="fastag_n_payment">Fastag \n Payment</string>
+    <string name="bill_n_payments">Bill \n Payments</string>
+    <string name="bus_nbooking">Bus \nBooking</string>
+    <string name="train_n_booking">Train \n Booking</string>
+    <string name="flight_nbooking">Flight \nBooking</string>
 </resources>

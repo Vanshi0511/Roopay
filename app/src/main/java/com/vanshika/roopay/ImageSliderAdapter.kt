@@ -37,7 +37,7 @@ class ImageSliderAdapter(private val context: Context, private val images: List<
         } else if (image is Int) {
             Glide.with(context).load(image).into(viewHolder.photoView)
             viewHolder.photoView.setOnClickListener {
-                // Optional: Define what happens when a drawable image is clicked
+                // Optional:  when a drawable image is clicked
             }
         }
     }

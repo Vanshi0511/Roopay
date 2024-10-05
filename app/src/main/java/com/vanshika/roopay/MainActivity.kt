@@ -32,8 +32,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         initCall();
-        // Toolbar
-
 
         // Bottom Navigation
         setupBottomNavigation(navController)
@@ -44,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun itemClickListener() {
         binding.ivRefresh.setOnClickListener {
+            Toast.makeText(this, "API Calling ...", Toast.LENGTH_SHORT).show()
             callRechargeApi()
         }
         binding.ivMenu.setOnClickListener {
@@ -55,24 +54,27 @@ class MainActivity : AppCompatActivity() {
         drawerLayout = binding.drawer
 
         // Navigation Drawer
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
         //  AppBarConfiguration
-        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.homeFragment, // Top-level destinations
-            R.id.settlementFragment,
-            R.id.reportFragment,
-            R.id.menuFragment
-        ), drawerLayout) // Pass drawerLayout as the openable layout
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.homeFragment,
+                R.id.settlementFragment,
+                R.id.reportFragment,
+                R.id.menuFragment
+            ), drawerLayout
+        )
 
         //  NavController
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         NavigationUI.setupWithNavController(binding.navigationView, navController)
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://supay.in/") // Base URL for the API
-            .addConverterFactory(GsonConverterFactory.create()) // To convert JSON to object
+            .baseUrl("https://supay.in/") // Base URL
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         apiService = retrofit.create(ApiService::class.java)
@@ -83,29 +85,32 @@ class MainActivity : AppCompatActivity() {
         val bottomNav: BottomNavigationView = binding.bottomNavigation
         NavigationUI.setupWithNavController(bottomNav, navController)
 
-        // Set up a listener for when items are selected in the Bottom Navigation
         bottomNav.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.navigation_home -> {
                     navController.navigate(R.id.homeFragment)
-                    drawerLayout.closeDrawer(binding.navigationView) // Close the drawer
+                    drawerLayout.closeDrawer(binding.navigationView)
                     true
                 }
+
                 R.id.navigation_settlements -> {
                     navController.navigate(R.id.settlementFragment)
-                    drawerLayout.closeDrawer(binding.navigationView) // Close the drawer
+                    drawerLayout.closeDrawer(binding.navigationView)
                     true
                 }
+
                 R.id.navigation_reports -> {
                     navController.navigate(R.id.reportFragment)
-                    drawerLayout.closeDrawer(binding.navigationView) // Close the drawer
+                    drawerLayout.closeDrawer(binding.navigationView)
                     true
                 }
+
                 R.id.navigation_menu -> {
                     navController.navigate(R.id.menuFragment)
-                    drawerLayout.closeDrawer(binding.navigationView) // Close the drawer
+                    drawerLayout.closeDrawer(binding.navigationView)
                     true
                 }
+
                 else -> false
             }
         }
@@ -113,9 +118,13 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onSupportNavigateUp(): Boolean {
-        // Navigate up with the navController and the AppBarConfiguration
-        return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp()
+
+        return NavigationUI.navigateUp(
+            navController,
+            appBarConfiguration
+        ) || super.onSupportNavigateUp()
     }
+
     private fun callRechargeApi() {
         val call = apiService.getRechargeDetails(
             memberId = "9876543210",
@@ -125,23 +134,42 @@ class MainActivity : AppCompatActivity() {
         )
 
         call.enqueue(object : Callback<RechargeResponse> {
-            override fun onResponse(call: Call<RechargeResponse>, response: Response<RechargeResponse>) {
+            override fun onResponse(
+                call: Call<RechargeResponse>,
+                response: Response<RechargeResponse>
+            ) {
                 if (response.isSuccessful) {
                     val rechargeResponse = response.body()
-                    Log.d("API_SUCCESS", "Response body ============="+rechargeResponse);
+                    Log.d("API_SUCCESS", "Response body =============" + rechargeResponse)
+
                     rechargeResponse?.let {
-                        Log.d("API_SUCCESS", "Status: ${it.status}, Message: ${it.message}")
+
+                        val message = "Status: ${it.status}, Message: ${it.message}"
+                        Log.d("API_SUCCESS", message)
+                        Toast.makeText(this@MainActivity, message, Toast.LENGTH_LONG).show()
                     } ?: run {
                         Log.d("API_ERROR", "Response body is null")
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Response body is null",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 } else {
-                    Log.d("API_ERROR", "Failed response: ${response.errorBody()?.string()}")
+                    val errorMessage = response.errorBody()?.string() ?: "Unknown error"
+                    Log.d("API_ERROR", "Failed response: $errorMessage")
+                    Toast.makeText(this@MainActivity, "Failed: $errorMessage", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
 
             override fun onFailure(call: Call<RechargeResponse>, t: Throwable) {
                 Log.d("API_ERROR", "API call failed: ${t.message}")
-                Toast.makeText(this@MainActivity, "API call failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@MainActivity,
+                    "API call failed: ${t.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
     }
